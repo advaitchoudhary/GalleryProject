@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { constants } from 'buffer';
+import React, { useEffect } from 'react';
+import Header from './Components/Header';
+import './Styles/App.css'
+import Sider from './Components/Sider';
+import  {useGetImagesQuery } from './Services/operations.api';
 function App() {
+  const {data,error,isLoading,isFetching,isSuccess}=useGetImagesQuery('');
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{width:'100%'}}>
+      <Header/>
+      </div>
     </div>
   );
 }
